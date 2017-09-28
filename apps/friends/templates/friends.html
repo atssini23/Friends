@@ -4,12 +4,14 @@
     <title>Friends</title>
 
     <meta charset="UTF-8">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    
 </head>
 <body>
 
-                <h2>Hello, {{me.alias}}!</h2>
-
-                <h5><a href='/logout'>Logout</a></h5>
+    <h2>Hello, {{me.alias}}!</h2> 
+    
+    <h5><a href='/logout'>Logout</a></h5>
 
         {% if friends%}
             <h3>Here is the list of your friends:</h3>
@@ -41,11 +43,11 @@
                     </tr>
                         {% for user in users %}
                         <tr>
-                            <td><a href='/users/{{user.id}}'>{{user.alias}}</a></td>
+                            <td><h3><a href='/users/{{user.id}}'>{{user.alias}}</a></h3></td>
                             <td>
                                 <form action='/users/add/{{user.id}}' method='post'>
                                     {% csrf_token %}
-                                    <input id='add' type='submit' value='Add as Friend'>
+                                    <input class="btn btn-success" id='add' type='submit' value='Add'>
                                 </form>
                             </td>
                         </tr>
